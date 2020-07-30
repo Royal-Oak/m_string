@@ -25,6 +25,7 @@ int main()
 	clock_t start, finish;
 	double cost = 0.0;
 
+	//一次读取---------------------
 	char *str_buf;
 	long size = fid.tellg();
 	str_buf = new char[size + 1];
@@ -32,6 +33,22 @@ int main()
 	fid.seekg(0, ios::beg);
 	fid.read(str_buf, size);
 	string str(str_buf);
+
+	//分块读取----------------------
+	//char *str_buf;
+	//string str;
+	//const int size = 1024;
+	//size_t count = size;
+	//str_buf = (char*)malloc(size);
+	//fid.seekg(0, ios::beg);
+	//while (!fid.eof())
+	//{
+	//	memset(str_buf, 0, size);
+	//	fid.read(str_buf, size);
+	//	count = strlen(str_buf);
+	//	count = count < size ? count : size;
+	//	str.append(str_buf, size);
+	//}
 
 	str = repeat(str, 10);//重复10此
 
